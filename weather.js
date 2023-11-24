@@ -25,15 +25,22 @@ async function getData(){
         console.log(data);
         
         
-        cityName.textContent = data.name
-        // country.textContent = data.sys.country
+        cityName.textContent = `${data.name} , `
+        country.textContent = data.sys.country
         date.textContent = newerDate.slice(0,15)
-        temp.textContent = Math.floor(data.main.temp - 273)
+        temp.textContent = `${Math.floor(data.main.temp - 273)}°c`
         whether.textContent = data.weather[0].main
-        minTemp.textContent = Math.floor(data.main.temp_min - 273)
-        maxTemp.textContent = Math.floor(data.main.temp_max - 273)
+        minTemp.textContent = `${Math.floor(data.main.temp_min - 273)}°c`
+        maxTemp.textContent = `${Math.floor(data.main.temp_max - 273)}°c`
     } catch (error) {
         console.log(error);
+        cityName.textContent = "Location Not Found"
+        country.textContent = ""
+        date.textContent = newerDate.slice(0,15)
+        temp.textContent = ""
+        whether.textContent = ""
+        minTemp.textContent = ""
+        maxTemp.textContent = ""
     }
 
     input.value = ""
